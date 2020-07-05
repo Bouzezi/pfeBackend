@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\DossierVisiteRepository")
@@ -20,41 +21,49 @@ class DossierVisite
 
     /**
      * @ORM\Column(type="string", length=10, nullable=true)
+     *  @Assert\NotBlank()
      */
     private $date_arrive_invitation;
 
     /**
      * @ORM\Column(type="string", length=10)
+     * @Assert\NotBlank()
      */
     private $date_debut;
 
     /**
      * @ORM\Column(type="string", length=10)
+     *  @Assert\NotBlank()
      */
     private $date_fin;
 
     /**
      * @ORM\Column(type="string", length=10)
+     * @Assert\NotBlank()
      */
     private $date_limite_reponce;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $sujet;
 
     /**
      * @ORM\Column(type="string", length=9)
+     * @Assert\Choice({"mission", "formation"})
      */
     private $type_visite;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Positive
      */
     private $nbrParticipant_INS;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\PositiveOrZero
      */
     private $nbrParticipant_SP;
 
@@ -70,16 +79,19 @@ class DossierVisite
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\Choice({"en-cours", "annuler", "finaliser"})
      */
     private $statut;
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank()
      */
     private $nature;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $langues;
 
@@ -102,16 +114,19 @@ class DossierVisite
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank()
      */
     private $ville;
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank()
      */
     private $direction;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $programme;
 
@@ -132,11 +147,13 @@ class DossierVisite
 
     /**
      * @ORM\Column(type="string", length=10)
+     * @Assert\NotBlank()
      */
     private $date;
 
     /**
      * @ORM\Column(type="string", length=10, nullable=true)
+     * @Assert\NotBlank()
      */
     private $date_envoi_documents;
 
