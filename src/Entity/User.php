@@ -9,7 +9,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Table(name="users")
  * @ORM\Entity
- * @UniqueEntity("username")
  */
 class User implements UserInterface
 {

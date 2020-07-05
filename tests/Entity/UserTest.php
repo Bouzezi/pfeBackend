@@ -11,11 +11,16 @@ class UserTest extends KernelTestCase
 {
 
     public function getEntity(): User{
-        return (new User())->setUsername('france');
+        return (new User('admin'));
     
     }
 
-    public function assertHasErrors(UserTest $code,int $number=0){
+    public function getEntityBlank(): User{
+        return (new User(''));
+    
+    }
+
+    public function assertHasErrors(User $code,int $number=0){
         self::bootkernel();
         $error=self::$container->get('validator')->validate($code);
         $this->assertcount($number, $error);
@@ -24,14 +29,14 @@ class UserTest extends KernelTestCase
 
     public function testValidEntityUser(){
 
-       $this->assertHasErrors($code =$this->setUsername(),0);
+       $this->assertHasErrors($code =$this->getEntity(),0);
     
 
     }
     
     public function testInValideUser(){
 
-        $this->assertHasErrors ($code =$this->getEntity()->setUsername(''),1);
+        $this->assertHasErrors ($code =$this->getEntityBlank(),1);
     }
 
 }
