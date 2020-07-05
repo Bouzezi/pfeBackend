@@ -1,0 +1,16 @@
+register:
+    path: /register
+    controller: App\Controller\AuthController::register
+    methods: POST
+changerPassword:
+    path: /changerPassword
+    controller: App\Controller\AuthController::changerPassword
+    methods: PUT
+
+api:
+    path: /api
+    controller: App\Controller\AuthController::api
+
+login_check:
+    path:     /login_check
+    methods:  [POST]
