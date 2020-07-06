@@ -21,7 +21,7 @@ class DossierVisite
 
     /**
      * @ORM\Column(type="string", length=10, nullable=true)
-     *  @Assert\NotBlank()
+     * @Assert\NotBlank()
      */
     private $date_arrive_invitation;
 

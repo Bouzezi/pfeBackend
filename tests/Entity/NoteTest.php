@@ -31,6 +31,7 @@ class NoteTest extends KernelTestCase
     public function testInValideNote(){
 
         $this->assertHasErrors ($code =$this->getEntity()->setDescription(''),1);
+        $this->assertHasErrors ($code =$this->getEntity()->setPieceJointe(''),1);
     } 
 
 }

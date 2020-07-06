@@ -46,9 +46,10 @@ class DossierVisiteTest extends KernelTestCase
     
     public function testInValideDossierVisite(){
 
-        $this->assertHasErrors ($code =$this->getEntity()->setDateArriveInvitation(''),2);
-        $this->assertHasErrors ($code =$this->getEntity()->setStatut('statut'),2);
-        $this->assertHasErrors ($code =$this->getEntity()->setTypeVisite('visite'),2);
+        $this->assertHasErrors ($code =$this->getEntity()->setDateArriveInvitation(''),1);
+        $this->assertHasErrors ($code =$this->getEntity()->setStatut('statut'),1);
+        $this->assertHasErrors ($code =$this->getEntity()->setTypeVisite('visite'),1);
+        $this->assertHasErrors ($code =$this->getEntity()->setNbrParticipantINS(-2),1);
     } 
 
 }
